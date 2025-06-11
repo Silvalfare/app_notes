@@ -1,4 +1,7 @@
+import 'package:app_notes/add_notes.dart';
 import 'package:app_notes/database/db_helper.dart';
+import 'package:app_notes/detail_notes.dart';
+import 'package:app_notes/edit_notes.dart';
 import 'package:app_notes/model/notes_model.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final TextEditingController namaController = TextEditingController();
-  final TextEditingController tanggalController = TextEditingController();
-  final TextEditingController isiController = TextEditingController();
   List<Notes> daftarNotes = [];
 
   @override
@@ -26,20 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       daftarNotes = data;
     });
-  }
-
-  Future<void> simpanData() async {
-    final nama = namaController.text;
-    final tanggal = tanggalController.text;
-    final isi = tanggalController.text;
-
-    if (nama.isNotEmpty && isi.isNotEmpty) {
-      await DbHelper.insertNotes(Notes(nama: nama, tanggal: tanggal, isi: isi));
-      namaController.clear();
-      tanggalController.clear();
-      isiController.clear();
-      muatData();
-    }
   }
 
   @override
@@ -59,41 +45,70 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(32),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color(0xffE5E5E5),
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-              ),
-              width: 311,
-              height: 32,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16),
-                    child: Text(
-                      'Find your notes',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
+          daftarNotes.isEmpty
+              ? Center(child: Text('Belum ada catatan'))
+              : SizedBox(),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: daftarNotes.length,
+            itemBuilder: (context, index) {
+              final notes = daftarNotes[index];
+              return ListTile(
+                onLongPress: () => showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    actions: [
+                      Row(
+                        children: [
+                          TextButton(
+                            onPressed: () async {
+                              await DbHelper.deleteNotes(notes.id!);
+                              Navigator.pop(context);
+                              muatData();
+                            },
+                            child: Text('Hapus'),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => EditNotesScreen(notes: notes),
+                                ),
+                              );
+                              muatData();
+                            },
+                            child: Text('Edit'),
+                          ),
+                        ],
                       ),
-                    ),
+                    ],
                   ),
-                  Spacer(),
-                  Icon(Icons.search),
-                ],
-              ),
-            ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => DetailNotesScreen(notes: notes),
+                    ),
+                  );
+                },
+                title: Text(notes.nama),
+                subtitle: Text(notes.tanggal),
+              );
+            },
           ),
-          SizedBox(),
-          // ListView.builder(
-          //   itemCount: 1,
-          //   itemBuilder: (BuildContext context, int index) {
-          //     return;
-          //   },
-          // ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => AddNotesScreen()),
+          );
+          muatData();
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
