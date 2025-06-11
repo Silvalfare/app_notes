@@ -33,7 +33,7 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
       isi: isiController.text,
     );
     await DbHelper.updateNotes(updated);
-    Navigator.pop(context);
+    Navigator.pop(context, true);
   }
 
   @override

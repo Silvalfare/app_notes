@@ -36,7 +36,12 @@ class _NotesScreenState extends State<NotesScreen> {
       body: Column(
         children: [
           daftarNotes.isEmpty
-              ? Center(child: Text('Belum ada catatan'))
+              ? Center(
+                  child: Text(
+                    'Belum ada catatan',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                )
               : SizedBox(),
           Expanded(
             child: ListView.builder(
@@ -89,12 +94,13 @@ class _NotesScreenState extends State<NotesScreen> {
                         ),
                       ),
                       onTap: () async {
-                        await Navigator.push(
+                        final hasil = await Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) => DetailNotesScreen(notes: notes),
                           ),
                         );
+                        if (hasil == true) muatData();
                       },
                       title: Text(
                         notes.nama,
@@ -127,7 +133,7 @@ class _NotesScreenState extends State<NotesScreen> {
           );
           muatData();
         },
-        child: Image.asset('assets/images/Edit.png'),
+        child: Icon(Icons.add),
       ),
     );
   }

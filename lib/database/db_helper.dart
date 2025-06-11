@@ -29,7 +29,6 @@ class DbHelper {
       'password': data?.password,
       'email': data?.email,
     }, conflictAlgorithm: ConflictAlgorithm.replace);
-    print('success');
   }
 
   static Future<UserModel?> login(String username, String password) async {
