@@ -1,4 +1,8 @@
 import 'package:app_notes/home.dart';
+import 'package:app_notes/landing_page.dart';
+import 'package:app_notes/login_page.dart';
+import 'package:app_notes/register_page.dart';
+import 'package:app_notes/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,10 +16,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: '/',
-      // routes: {
-
-      // },
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        LandingPage.id: (context) => LandingPage(),
+        LoginPage.id: (context) => LoginPage(),
+        RegisterPage.id: (context) => RegisterPage(),
+        HomeScreen.id: (context) => HomeScreen(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -36,7 +44,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomeScreen(),
+      // home: LandingPage(),
     );
   }
 }

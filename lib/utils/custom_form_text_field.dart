@@ -44,11 +44,11 @@ class CustomFormTextField extends StatelessWidget {
               fillColor: Colors.white,
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black),
-                borderRadius: BorderRadius.all(Radius.elliptical(4, 4)),
+                borderRadius: BorderRadius.all(Radius.elliptical(12, 12)),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black),
-                borderRadius: BorderRadius.all(Radius.elliptical(4, 4)),
+                borderRadius: BorderRadius.all(Radius.elliptical(12, 12)),
               ),
               suffixIcon: suffixIcon,
             ),

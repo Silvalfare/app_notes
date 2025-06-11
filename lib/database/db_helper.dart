@@ -1,4 +1,5 @@
 import 'package:app_notes/model/notes_model.dart';
+import 'package:app_notes/model/user_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -7,13 +8,42 @@ class DbHelper {
     final dbPath = await getDatabasesPath();
     return openDatabase(
       join(dbPath, 'notes.db'),
-      onCreate: (db, version) {
-        return db.execute(
+      onCreate: (db, version) async {
+        await db.execute(
           'CREATE TABLE notes (id INTEGER PRIMARY KEY AUTOINCREMENT, nama TEXT, tanggal TEXT, isi TEXT)',
+        );
+
+        await db.execute(
+          'CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, email TEXT)',
         );
       },
       version: 1,
     );
+  }
+
+  static Future<void> registerUser({UserModel? data}) async {
+    final db = await DbHelper.db();
+
+    await db.insert('users', {
+      'username': data?.username,
+      'password': data?.password,
+      'email': data?.email,
+    }, conflictAlgorithm: ConflictAlgorithm.replace);
+    print('success');
+  }
+
+  static Future<UserModel?> login(String username, String password) async {
+    final db = await DbHelper.db();
+    final List<Map<String, dynamic>> data = await db.query(
+      'users',
+      where: 'username = ? AND password = ?',
+      whereArgs: [username, password],
+    );
+    if (data.isNotEmpty) {
+      return UserModel.fromMap(data.first);
+    } else {
+      return null;
+    }
   }
 
   static Future<void> insertNotes(Notes notes) async {

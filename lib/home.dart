@@ -1,11 +1,12 @@
-import 'package:app_notes/add_notes.dart';
 import 'package:app_notes/database/db_helper.dart';
-import 'package:app_notes/detail_notes.dart';
-import 'package:app_notes/edit_notes.dart';
+import 'package:app_notes/info_aplikasi.dart';
+import 'package:app_notes/landing_page.dart';
 import 'package:app_notes/model/notes_model.dart';
+import 'package:app_notes/notes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const String id = "/home_screen";
   const HomeScreen({super.key});
 
   @override
@@ -28,88 +29,87 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  final List<Widget> _screen = [NotesScreen(), AboutPageScreen()];
+
+  final List<String> title = ['Notes', 'Tentang Aplikasi'];
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: Text(title[currentIndex]),
+        backgroundColor: Colors.white,
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        child: ListView(
           children: [
-            Text(
-              'Notes',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ListTile(
+              tileColor: currentIndex == 0 ? Colors.black : Colors.white,
+              leading: Icon(
+                Icons.note_add,
+                color: currentIndex == 0 ? Colors.white : Colors.black,
+              ),
+              title: Text(
+                'Notes',
+                style: TextStyle(
+                  color: currentIndex == 0 ? Colors.white : Colors.black,
+                ),
+              ),
+              onTap: () {
+                setState(() {
+                  currentIndex = 0;
+                  Navigator.pop(context);
+                });
+              },
             ),
-            Spacer(),
-            IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+            ListTile(
+              tileColor: currentIndex == 1 ? Colors.black : Colors.white,
+              leading: Icon(
+                Icons.info,
+                color: currentIndex == 1 ? Colors.white : Colors.black,
+              ),
+              title: Text(
+                'About',
+                style: TextStyle(
+                  color: currentIndex == 1 ? Colors.white : Colors.black,
+                ),
+              ),
+              onTap: () {
+                setState(() {
+                  currentIndex = 1;
+                  Navigator.pop(context);
+                });
+              },
+            ),
+            ListTile(
+              tileColor: currentIndex == 2 ? Colors.black : Colors.white,
+              leading: Icon(
+                Icons.exit_to_app,
+                color: currentIndex == 2 ? Colors.white : Colors.black,
+              ),
+              title: Text(
+                'Logout',
+                style: TextStyle(
+                  color: currentIndex == 2 ? Colors.white : Colors.black,
+                ),
+              ),
+              onTap: () {
+                setState(() {
+                  currentIndex = 2;
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (_) => LandingPage()),
+                    (route) => false,
+                  );
+                });
+              },
+            ),
           ],
         ),
       ),
-      body: Column(
-        children: [
-          daftarNotes.isEmpty
-              ? Center(child: Text('Belum ada catatan'))
-              : SizedBox(),
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: daftarNotes.length,
-            itemBuilder: (context, index) {
-              final notes = daftarNotes[index];
-              return ListTile(
-                onLongPress: () => showDialog(
-                  context: context,
-                  builder: (_) => AlertDialog(
-                    actions: [
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () async {
-                              await DbHelper.deleteNotes(notes.id!);
-                              Navigator.pop(context);
-                              muatData();
-                            },
-                            child: Text('Hapus'),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => EditNotesScreen(notes: notes),
-                                ),
-                              );
-                              muatData();
-                            },
-                            child: Text('Edit'),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => DetailNotesScreen(notes: notes),
-                    ),
-                  );
-                },
-                title: Text(notes.nama),
-                subtitle: Text(notes.tanggal),
-              );
-            },
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => AddNotesScreen()),
-          );
-          muatData();
-        },
-        child: Icon(Icons.add),
-      ),
+      body: _screen[currentIndex],
     );
   }
 }

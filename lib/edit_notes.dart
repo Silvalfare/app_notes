@@ -39,7 +39,11 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Edit ${widget.notes.nama}')),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text('Edit ${widget.notes.nama}'),
+      ),
       body: Column(
         children: [
           CustomTextField(controller: namaController, label: 'Nama'),

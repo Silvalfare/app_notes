@@ -7,11 +7,13 @@ class CustomElevatedButton extends StatelessWidget {
     required this.text,
     this.backgroundColor = Colors.white,
     this.textColor = Colors.black,
+    this.foregroundColor = Colors.black,
   });
   final void Function()? onPressed;
   final String text;
   final Color backgroundColor;
   final Color textColor;
+  final Color foregroundColor;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,10 +26,11 @@ class CustomElevatedButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             shadowColor: Colors.black,
             backgroundColor: backgroundColor,
+            foregroundColor: foregroundColor,
             disabledBackgroundColor: backgroundColor,
             shape: RoundedRectangleBorder(
               side: BorderSide(color: Colors.black),
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(12),
             ),
             elevation: 0,
           ),
@@ -36,7 +39,7 @@ class CustomElevatedButton extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: textColor,
             ),
           ),
         ),

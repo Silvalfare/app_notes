@@ -8,8 +8,16 @@ class DetailNotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(notes.nama)),
-      body: Column(children: [Text(notes.isi)]),
+      backgroundColor: Colors.white,
+      appBar: AppBar(backgroundColor: Colors.white, title: Text(notes.nama)),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Text(notes.isi, style: TextStyle(fontSize: 18)),
+          ),
+        ],
+      ),
     );
   }
 }

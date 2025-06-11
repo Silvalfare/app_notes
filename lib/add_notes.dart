@@ -21,7 +21,7 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
     if (_formKey.currentState!.validate()) {
       final nama = namaController.text;
       final tanggal = tanggalController.text;
-      final isi = tanggalController.text;
+      final isi = isiController.text;
 
       await DbHelper.insertNotes(Notes(nama: nama, tanggal: tanggal, isi: isi));
       // namaController.clear();
@@ -34,7 +34,8 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Notes')),
+      backgroundColor: Colors.white,
+      appBar: AppBar(title: Text('Notes'), backgroundColor: Colors.white),
       body: Form(
         key: _formKey,
         child: Column(
@@ -42,7 +43,12 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
             CustomTextField(controller: namaController, label: 'Nama'),
             CustomTextField(controller: tanggalController, label: 'Tanggal'),
             CustomTextField(controller: isiController, label: 'Isi'),
-            CustomElevatedButton(text: 'Add', onPressed: simpanData),
+            CustomElevatedButton(
+              text: 'Add',
+              onPressed: simpanData,
+              backgroundColor: Colors.black,
+              textColor: Colors.white,
+            ),
           ],
         ),
       ),
