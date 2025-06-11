@@ -8,6 +8,8 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
   final TextInputType keyboardType;
+  final GestureTapCallback? onTap;
+  final bool readOnly;
 
   const CustomTextField({
     super.key,
@@ -18,6 +20,8 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.suffixIcon,
     this.keyboardType = TextInputType.text,
+    this.onTap,
+    this.readOnly = false,
   });
 
   @override
@@ -29,6 +33,8 @@ class CustomTextField extends StatelessWidget {
         children: [
           SizedBox(height: 5),
           TextFormField(
+            onTap: onTap,
+            readOnly: readOnly,
             controller: controller,
             obscureText: obscureText,
             validator: validator,

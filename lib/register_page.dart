@@ -33,8 +33,15 @@ class _RegisterPageState extends State<RegisterPage> {
                 CustomFormTextField(
                   controller: emailController,
                   label: 'Email',
-                  validator: (value) =>
-                      value == null || value.isEmpty ? "Wajib diisi" : null,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Wajib diisi';
+                    } else if (!value.contains('@') ||
+                        !value.contains('gmail.com')) {
+                      return 'Format email tidak valid \nFormat email menggunakan "email"@gmail.com';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(height: 16),
                 CustomFormTextField(

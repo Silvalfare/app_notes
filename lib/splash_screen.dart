@@ -1,4 +1,5 @@
 import 'package:app_notes/helper/preference.dart';
+import 'package:app_notes/home.dart';
 import 'package:app_notes/landing_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,15 +12,22 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void changePage() {
-    Future.delayed(Duration(seconds: 2), () async {
+    Future.delayed(Duration(seconds: 1), () async {
       bool isLogin = await PreferenceHandler.getLogin();
 
-      Navigator.pushNamedAndRemoveUntil(
-        context,
-        LandingPage.id,
-        (Route) => false,
-      );
-      // }
+      if (isLogin) {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          HomeScreen.id,
+          (Route) => false,
+        );
+      } else {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          LandingPage.id,
+          (route) => false,
+        );
+      }
     });
   }
 

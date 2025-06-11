@@ -33,12 +33,14 @@ class _LandingPageState extends State<LandingPage> {
                 children: [
                   CustomElevatedButton(
                     text: 'Login',
+                    backgroundColor: Color(0xffE5E5E5),
                     onPressed: () {
                       Navigator.pushNamed(context, LoginPage.id);
                     },
                   ),
                   CustomElevatedButton(
                     text: 'Register',
+                    backgroundColor: Color(0xffE5E5E5),
                     onPressed: () {
                       Navigator.pushNamed(context, RegisterPage.id);
                     },
