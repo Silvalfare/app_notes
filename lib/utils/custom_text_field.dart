@@ -10,6 +10,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final GestureTapCallback? onTap;
   final bool readOnly;
+  final int? maxLines;
 
   const CustomTextField({
     super.key,
@@ -22,6 +23,7 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.onTap,
     this.readOnly = false,
+    this.maxLines = 1,
   });
 
   @override
@@ -33,6 +35,7 @@ class CustomTextField extends StatelessWidget {
         children: [
           SizedBox(height: 5),
           TextFormField(
+            maxLines: maxLines,
             onTap: onTap,
             readOnly: readOnly,
             controller: controller,
@@ -42,6 +45,7 @@ class CustomTextField extends StatelessWidget {
             style: TextStyle(color: Colors.black),
             cursorColor: Colors.black,
             decoration: InputDecoration(
+              alignLabelWithHint: true,
               label: Text(label),
               labelStyle: TextStyle(color: Colors.black),
               hintText: hintText,

@@ -1,8 +1,8 @@
-import 'package:app_notes/add_notes.dart';
-import 'package:app_notes/database/db_helper.dart';
-import 'package:app_notes/detail_notes.dart';
-import 'package:app_notes/edit_notes.dart';
-import 'package:app_notes/model/notes_model.dart';
+import 'package:Notes/pages/add_notes.dart';
+import 'package:Notes/database/db_helper.dart';
+import 'package:Notes/pages/detail_notes.dart';
+import 'package:Notes/pages/edit_notes.dart';
+import 'package:Notes/model/notes_model.dart';
 import 'package:flutter/material.dart';
 
 class NotesScreen extends StatefulWidget {
@@ -60,39 +60,6 @@ class _NotesScreenState extends State<NotesScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(16)),
                     ),
                     child: ListTile(
-                      onLongPress: () => showDialog(
-                        context: context,
-                        builder: (_) => AlertDialog(
-                          actions: [
-                            Row(
-                              children: [
-                                TextButton(
-                                  onPressed: () async {
-                                    await DbHelper.deleteNotes(notes.id!);
-                                    Navigator.pop(context);
-                                    muatData();
-                                  },
-                                  child: Text('Hapus'),
-                                ),
-                                TextButton(
-                                  onPressed: () async {
-                                    Navigator.pop(context);
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            EditNotesScreen(notes: notes),
-                                      ),
-                                    );
-                                    muatData();
-                                  },
-                                  child: Text('Edit'),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
                       onTap: () async {
                         final hasil = await Navigator.push(
                           context,
@@ -110,7 +77,9 @@ class _NotesScreenState extends State<NotesScreen> {
                         ),
                       ),
                       subtitle: Text(
-                        notes.tanggal,
+                        notes.isi,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),
                     ),

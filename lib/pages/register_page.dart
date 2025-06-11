@@ -1,7 +1,7 @@
-import 'package:app_notes/database/db_helper.dart';
-import 'package:app_notes/model/user_model.dart';
-import 'package:app_notes/utils/custom_elevated_button.dart';
-import 'package:app_notes/utils/custom_form_text_field.dart';
+import 'package:Notes/database/db_helper.dart';
+import 'package:Notes/model/user_model.dart';
+import 'package:Notes/utils/custom_elevated_button.dart';
+import 'package:Notes/utils/custom_form_text_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {

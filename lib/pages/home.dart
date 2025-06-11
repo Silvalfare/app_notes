@@ -1,9 +1,9 @@
-import 'package:app_notes/database/db_helper.dart';
-import 'package:app_notes/helper/preference.dart';
-import 'package:app_notes/info_aplikasi.dart';
-import 'package:app_notes/landing_page.dart';
-import 'package:app_notes/model/notes_model.dart';
-import 'package:app_notes/notes.dart';
+import 'package:Notes/database/db_helper.dart';
+import 'package:Notes/helper/preference.dart';
+import 'package:Notes/pages/info_aplikasi.dart';
+import 'package:Notes/pages/landing_page.dart';
+import 'package:Notes/model/notes_model.dart';
+import 'package:Notes/pages/notes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

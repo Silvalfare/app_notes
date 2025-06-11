@@ -1,8 +1,8 @@
-import 'package:app_notes/database/db_helper.dart';
-import 'package:app_notes/helper/preference.dart';
-import 'package:app_notes/home.dart';
-import 'package:app_notes/utils/custom_elevated_button.dart';
-import 'package:app_notes/utils/custom_text_field.dart';
+import 'package:Notes/database/db_helper.dart';
+import 'package:Notes/helper/preference.dart';
+import 'package:Notes/pages/home.dart';
+import 'package:Notes/utils/custom_elevated_button.dart';
+import 'package:Notes/utils/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {

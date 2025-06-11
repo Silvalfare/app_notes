@@ -1,6 +1,6 @@
-import 'package:app_notes/login_page.dart';
-import 'package:app_notes/register_page.dart';
-import 'package:app_notes/utils/custom_elevated_button.dart';
+import 'package:Notes/pages/login_page.dart';
+import 'package:Notes/pages/register_page.dart';
+import 'package:Notes/utils/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -33,14 +33,14 @@ class _LandingPageState extends State<LandingPage> {
                 children: [
                   CustomElevatedButton(
                     text: 'Login',
-                    backgroundColor: Color(0xffE5E5E5),
+                    backgroundColor: Colors.black,
                     onPressed: () {
                       Navigator.pushNamed(context, LoginPage.id);
                     },
                   ),
                   CustomElevatedButton(
                     text: 'Register',
-                    backgroundColor: Color(0xffE5E5E5),
+                    backgroundColor: Colors.black,
                     onPressed: () {
                       Navigator.pushNamed(context, RegisterPage.id);
                     },
