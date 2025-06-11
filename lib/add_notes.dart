@@ -3,6 +3,7 @@ import 'package:app_notes/model/notes_model.dart';
 import 'package:app_notes/utils/custom_elevated_button.dart';
 import 'package:app_notes/utils/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AddNotesScreen extends StatefulWidget {
   const AddNotesScreen({super.key});
