@@ -51,7 +51,7 @@ class _NotesScreenState extends State<NotesScreen> {
                 final notes = daftarNotes[index];
                 return Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
+                    horizontal: 18,
                     vertical: 8,
                   ),
                   child: Container(
