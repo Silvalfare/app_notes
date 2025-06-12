@@ -1,5 +1,5 @@
-import 'package:Notes/pages/login_screen.dart';
-import 'package:Notes/pages/register_screen.dart';
+import 'package:Notes/screen/auth/login_screen.dart';
+import 'package:Notes/screen/auth/register_screen.dart';
 import 'package:Notes/utils/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
