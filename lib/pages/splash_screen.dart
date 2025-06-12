@@ -1,6 +1,6 @@
 import 'package:Notes/helper/preference.dart';
 import 'package:Notes/pages/home.dart';
-import 'package:Notes/pages/landing_page.dart';
+import 'package:Notes/pages/landing_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         Navigator.pushNamedAndRemoveUntil(
           context,
-          LandingPage.id,
+          LandingScreen.id,
           (route) => false,
         );
       }

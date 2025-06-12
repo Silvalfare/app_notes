@@ -1,7 +1,7 @@
 import 'package:Notes/pages/home.dart';
-import 'package:Notes/pages/landing_page.dart';
-import 'package:Notes/pages/login_page.dart';
-import 'package:Notes/pages/register_page.dart';
+import 'package:Notes/pages/landing_screen.dart';
+import 'package:Notes/pages/login_screen.dart';
+import 'package:Notes/pages/register_screen.dart';
 import 'package:Notes/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        LandingPage.id: (context) => LandingPage(),
-        LoginPage.id: (context) => LoginPage(),
-        RegisterPage.id: (context) => RegisterPage(),
+        LandingScreen.id: (context) => LandingScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        RegisterScreen.id: (context) => RegisterScreen(),
         HomeScreen.id: (context) => HomeScreen(),
       },
       debugShowCheckedModeBanner: false,

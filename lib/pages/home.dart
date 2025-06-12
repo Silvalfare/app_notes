@@ -2,7 +2,7 @@ import 'package:Notes/database/db_helper.dart';
 import 'package:Notes/helper/preference.dart';
 import 'package:Notes/model/notes_model.dart';
 import 'package:Notes/pages/info_aplikasi.dart';
-import 'package:Notes/pages/landing_page.dart';
+import 'package:Notes/pages/landing_screen.dart';
 import 'package:Notes/pages/notes.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  final List<Widget> _screen = [NotesScreen(), AboutPageScreen()];
+  final List<Widget> _screen = [NotesScreen(), AboutScreen()];
 
   final List<String> title = ['Notes', 'Tentang Aplikasi'];
   int currentIndex = 0;
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   await PreferenceHandler.deleteLogin();
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (_) => LandingPage()),
+                    MaterialPageRoute(builder: (_) => LandingScreen()),
                     (route) => false,
                   );
                 }

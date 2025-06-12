@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class AboutPageScreen extends StatelessWidget {
+class AboutScreen extends StatelessWidget {
   static const String id = "/info_aplikasi";
-  const AboutPageScreen({super.key});
+  const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

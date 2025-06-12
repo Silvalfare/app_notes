@@ -20,7 +20,10 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
         backgroundColor: Colors.white,
         title: Row(
           children: [
-            Text(widget.notes.nama),
+            SizedBox(
+              width: 250,
+              child: Text(widget.notes.nama, overflow: TextOverflow.ellipsis),
+            ),
             Spacer(),
             IconButton(
               onPressed: () async {
@@ -60,7 +63,11 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Text(widget.notes.isi, style: TextStyle(fontSize: 18)),
+            child: Text(
+              overflow: TextOverflow.ellipsis,
+              widget.notes.isi,
+              style: TextStyle(fontSize: 18),
+            ),
           ),
         ],
       ),
