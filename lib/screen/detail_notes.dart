@@ -21,7 +21,7 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
         title: Row(
           children: [
             SizedBox(
-              width: 250,
+              width: 190,
               child: Text(widget.notes.nama, overflow: TextOverflow.ellipsis),
             ),
             Spacer(),

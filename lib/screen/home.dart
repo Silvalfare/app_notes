@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         child: ListView(
           children: [
+            Divider(),
             ListTile(
               tileColor: currentIndex == 0 ? Colors.black : Colors.white,
               leading: Icon(
@@ -121,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),
+            Divider(),
           ],
         ),
       ),

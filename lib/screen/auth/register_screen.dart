@@ -84,7 +84,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          duration: Duration(seconds: 2 ),
+                          behavior: SnackBarBehavior.floating,
+                          duration: Duration(seconds: 2),
                           content: Text('Registration Succesful!'),
                           backgroundColor: Colors.black,
                         ),

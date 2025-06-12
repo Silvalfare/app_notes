@@ -68,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         PreferenceHandler.saveLogin(true);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
+                            behavior: SnackBarBehavior.floating,
                             duration: Duration(seconds: 1),
                             content: Text('Login Succesful'),
                           ),
@@ -80,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
+                            behavior: SnackBarBehavior.floating,
                             duration: Duration(seconds: 1),
                             content: Text('Username atau password salah'),
                           ),
