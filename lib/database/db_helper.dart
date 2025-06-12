@@ -1,5 +1,5 @@
-import 'package:app_notes/model/notes_model.dart';
-import 'package:app_notes/model/user_model.dart';
+import 'package:Notes/model/notes_model.dart';
+import 'package:Notes/model/user_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -10,7 +10,7 @@ class DbHelper {
       join(dbPath, 'notes.db'),
       onCreate: (db, version) async {
         await db.execute(
-          'CREATE TABLE notes (id INTEGER PRIMARY KEY AUTOINCREMENT, nama TEXT, tanggal TEXT, isi TEXT)',
+          'CREATE TABLE notes (id INTEGER PRIMARY KEY AUTOINCREMENT, nama TEXT, isi TEXT)',
         );
 
         await db.execute(
@@ -29,7 +29,6 @@ class DbHelper {
       'password': data?.password,
       'email': data?.email,
     }, conflictAlgorithm: ConflictAlgorithm.replace);
-    print('success');
   }
 
   static Future<UserModel?> login(String username, String password) async {

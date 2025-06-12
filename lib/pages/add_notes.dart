@@ -1,8 +1,9 @@
-import 'package:app_notes/database/db_helper.dart';
-import 'package:app_notes/model/notes_model.dart';
-import 'package:app_notes/utils/custom_elevated_button.dart';
-import 'package:app_notes/utils/custom_text_field.dart';
+import 'package:Notes/database/db_helper.dart';
+import 'package:Notes/model/notes_model.dart';
+import 'package:Notes/utils/custom_elevated_button.dart';
+import 'package:Notes/utils/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AddNotesScreen extends StatefulWidget {
   const AddNotesScreen({super.key});
@@ -14,16 +15,14 @@ class AddNotesScreen extends StatefulWidget {
 class _AddNotesScreenState extends State<AddNotesScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController namaController = TextEditingController();
-  final TextEditingController tanggalController = TextEditingController();
   final TextEditingController isiController = TextEditingController();
 
   Future<void> simpanData() async {
     if (_formKey.currentState!.validate()) {
       final nama = namaController.text;
-      final tanggal = tanggalController.text;
       final isi = isiController.text;
 
-      await DbHelper.insertNotes(Notes(nama: nama, tanggal: tanggal, isi: isi));
+      await DbHelper.insertNotes(Notes(nama: nama, isi: isi));
       // namaController.clear();
       // tanggalController.clear();
       // isiController.clear();
@@ -40,9 +39,19 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
         key: _formKey,
         child: Column(
           children: [
-            CustomTextField(controller: namaController, label: 'Nama'),
-            CustomTextField(controller: tanggalController, label: 'Tanggal'),
-            CustomTextField(controller: isiController, label: 'Isi'),
+            CustomTextField(
+              controller: namaController,
+              label: 'Nama',
+              validator: (value) =>
+                  value == null || value.isEmpty ? "Wajib diisi" : null,
+            ),
+            CustomTextField(
+              validator: (value) =>
+                  value == null || value.isEmpty ? "Wajib diisi" : null,
+              controller: isiController,
+              label: 'Isi',
+              maxLines: 4,
+            ),
             CustomElevatedButton(
               text: 'Add',
               onPressed: simpanData,

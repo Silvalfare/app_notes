@@ -4,29 +4,17 @@ import 'dart:convert';
 class Notes {
   final int? id;
   final String nama;
-  final String tanggal;
   final String isi;
-  Notes({
-    this.id,
-    required this.nama,
-    required this.tanggal,
-    required this.isi,
-  });
+  Notes({this.id, required this.nama, required this.isi});
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'id': id,
-      'nama': nama,
-      'tanggal': tanggal,
-      'isi': isi,
-    };
+    return <String, dynamic>{'id': id, 'nama': nama, 'isi': isi};
   }
 
   factory Notes.fromMap(Map<String, dynamic> map) {
     return Notes(
       id: map['id'] != null ? map['id'] as int : null,
       nama: map['nama'] as String,
-      tanggal: map['tanggal'] as String,
       isi: map['isi'] as String,
     );
   }

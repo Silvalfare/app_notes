@@ -1,7 +1,7 @@
-import 'package:app_notes/database/db_helper.dart';
-import 'package:app_notes/model/notes_model.dart';
-import 'package:app_notes/utils/custom_elevated_button.dart';
-import 'package:app_notes/utils/custom_text_field.dart';
+import 'package:Notes/database/db_helper.dart';
+import 'package:Notes/model/notes_model.dart';
+import 'package:Notes/utils/custom_elevated_button.dart';
+import 'package:Notes/utils/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class EditNotesScreen extends StatefulWidget {
@@ -14,13 +14,11 @@ class EditNotesScreen extends StatefulWidget {
 
 class _EditNotesScreenState extends State<EditNotesScreen> {
   late TextEditingController namaController;
-  late TextEditingController tanggalController;
   late TextEditingController isiController;
 
   @override
   void initState() {
     namaController = TextEditingController(text: widget.notes.nama);
-    tanggalController = TextEditingController(text: widget.notes.tanggal);
     isiController = TextEditingController(text: widget.notes.isi);
     super.initState();
   }
@@ -29,11 +27,10 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
     final updated = Notes(
       id: widget.notes.id,
       nama: namaController.text,
-      tanggal: tanggalController.text,
       isi: isiController.text,
     );
     await DbHelper.updateNotes(updated);
-    Navigator.pop(context);
+    Navigator.pop(context, true);
   }
 
   @override
@@ -46,10 +43,25 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
       ),
       body: Column(
         children: [
-          CustomTextField(controller: namaController, label: 'Nama'),
-          CustomTextField(controller: tanggalController, label: 'Tanggal'),
-          CustomTextField(controller: isiController, label: 'Isi'),
-          CustomElevatedButton(text: 'Update', onPressed: update),
+          CustomTextField(
+            controller: namaController,
+            label: 'Nama',
+            validator: (value) =>
+                value == null || value.isEmpty ? "Wajib diisi" : null,
+          ),
+          CustomTextField(
+            controller: isiController,
+            label: 'Isi',
+            maxLines: 4,
+            validator: (value) =>
+                value == null || value.isEmpty ? "Wajib diisi" : null,
+          ),
+          CustomElevatedButton(
+            text: 'Update',
+            onPressed: update,
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+          ),
         ],
       ),
     );
