@@ -95,11 +95,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop(context, false),
-                        child: Text("Batal"),
+                        child: Text(
+                          "Batal",
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                       TextButton(
                         onPressed: () => Navigator.pop(context, true),
-                        child: Text('Logout'),
+                        child: Text(
+                          'Logout',
+                          style: TextStyle(color: Colors.red),
+                        ),
                       ),
                     ],
                   ),

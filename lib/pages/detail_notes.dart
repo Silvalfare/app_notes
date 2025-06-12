@@ -1,6 +1,6 @@
 import 'package:Notes/database/db_helper.dart';
-import 'package:Notes/pages/edit_notes.dart';
 import 'package:Notes/model/notes_model.dart';
+import 'package:Notes/pages/edit_notes.dart';
 import 'package:flutter/material.dart';
 
 class DetailNotesScreen extends StatefulWidget {
@@ -31,11 +31,17 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop(context, false),
-                        child: Text('Batal'),
+                        child: Text(
+                          'Batal',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                       TextButton(
                         onPressed: () => Navigator.pop(context, true),
-                        child: Text('Hapus'),
+                        child: Text(
+                          'Hapus',
+                          style: TextStyle(color: Colors.red),
+                        ),
                       ),
                     ],
                   ),
