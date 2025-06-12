@@ -84,6 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
+                          duration: Duration(seconds: 2 ),
                           content: Text('Registration Succesful!'),
                           backgroundColor: Colors.black,
                         ),

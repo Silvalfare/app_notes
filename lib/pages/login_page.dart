@@ -67,7 +67,10 @@ class _LoginPageState extends State<LoginPage> {
                       if (userData != null) {
                         PreferenceHandler.saveLogin(true);
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Login Succesful')),
+                          SnackBar(
+                            duration: Duration(seconds: 1),
+                            content: Text('Login Succesful'),
+                          ),
                         );
                         Navigator.pushAndRemoveUntil(
                           context,
@@ -77,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
+                            duration: Duration(seconds: 1),
                             content: Text('Username atau password salah'),
                           ),
                         );

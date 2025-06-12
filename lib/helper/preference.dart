@@ -14,7 +14,7 @@ class PreferenceHandler {
     return login;
   }
 
-  static void deleteLogin() async {
+  static Future<void> deleteLogin() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.remove(_loginKey);
   }
