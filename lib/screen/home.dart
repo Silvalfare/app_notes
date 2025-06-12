@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screen = [NotesScreen(), AboutScreen()];
 
-  final List<String> title = ['Notes', 'Tentang Aplikasi'];
+  final List<String> title = ['Notes', 'About'];
   int currentIndex = 0;
 
   @override

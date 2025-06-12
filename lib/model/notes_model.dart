@@ -5,10 +5,16 @@ class Notes {
   final int? id;
   final String nama;
   final String isi;
-  Notes({this.id, required this.nama, required this.isi});
+  final String? tanggal;
+  Notes({this.id, required this.nama, required this.isi, this.tanggal});
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{'id': id, 'nama': nama, 'isi': isi};
+    return <String, dynamic>{
+      'id': id,
+      'nama': nama,
+      'isi': isi,
+      'tanggal': tanggal,
+    };
   }
 
   factory Notes.fromMap(Map<String, dynamic> map) {
@@ -16,6 +22,7 @@ class Notes {
       id: map['id'] != null ? map['id'] as int : null,
       nama: map['nama'] as String,
       isi: map['isi'] as String,
+      tanggal: map['tanggal'] as String,
     );
   }
 

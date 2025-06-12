@@ -17,6 +17,8 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
+        elevation: 0,
         backgroundColor: Colors.white,
         title: Row(
           children: [
@@ -59,17 +61,15 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Text(
-              overflow: TextOverflow.ellipsis,
-              widget.notes.isi,
-              style: TextStyle(fontSize: 18),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Text(widget.notes.isi, style: TextStyle(fontSize: 18)),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(

@@ -68,12 +68,29 @@ class _NotesScreenState extends State<NotesScreen> {
                         );
                         if (hasil == true) muatData();
                       },
-                      title: Text(
-                        notes.nama,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                      title: Row(
+                        children: [
+                          SizedBox(
+                            width: 230,
+                            child: Text(
+                              notes.nama,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          Spacer(),
+                          Text(
+                            '${notes.tanggal}',
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
                       subtitle: Text(
                         notes.isi,

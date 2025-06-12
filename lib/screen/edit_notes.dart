@@ -28,6 +28,7 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
       id: widget.notes.id,
       nama: namaController.text,
       isi: isiController.text,
+      tanggal: widget.notes.tanggal,
     );
     await DbHelper.updateNotes(updated);
     Navigator.pop(context, true);
@@ -58,7 +59,9 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
           ),
           CustomElevatedButton(
             text: 'Update',
-            onPressed: update,
+            onPressed: () {
+              update();
+            },
             backgroundColor: Colors.black,
             textColor: Colors.white,
           ),

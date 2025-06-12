@@ -21,11 +21,9 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
     if (_formKey.currentState!.validate()) {
       final nama = namaController.text;
       final isi = isiController.text;
+      final tanggal = DateFormat('dd/MM/yyyy').format(DateTime.now());
 
-      await DbHelper.insertNotes(Notes(nama: nama, isi: isi));
-      // namaController.clear();
-      // tanggalController.clear();
-      // isiController.clear();
+      await DbHelper.insertNotes(Notes(nama: nama, isi: isi, tanggal: tanggal));
       Navigator.pop(context);
     }
   }
