@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
   final GestureTapCallback? onTap;
   final bool readOnly;
   final int? maxLines;
+  final FocusNode? focusNode;
 
   const CustomTextField({
     super.key,
@@ -24,6 +25,7 @@ class CustomTextField extends StatelessWidget {
     this.onTap,
     this.readOnly = false,
     this.maxLines = 1,
+    this.focusNode,
   });
 
   @override
@@ -44,6 +46,8 @@ class CustomTextField extends StatelessWidget {
             keyboardType: keyboardType,
             style: TextStyle(color: Colors.black),
             cursorColor: Colors.black,
+            focusNode: focusNode,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             decoration: InputDecoration(
               alignLabelWithHint: true,
               label: Text(label),

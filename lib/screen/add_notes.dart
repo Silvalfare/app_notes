@@ -32,7 +32,7 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text('Notes'), backgroundColor: Colors.white),
+      appBar: AppBar(title: Text('New Note'), backgroundColor: Colors.white),
       body: Form(
         key: _formKey,
         child: Column(
@@ -40,14 +40,12 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
             CustomTextField(
               controller: namaController,
               label: 'Title',
-              validator: (value) => value == null || value.isEmpty
-                  ? "You must fill out this field."
-                  : null,
+              validator: (value) =>
+                  value == null || value.isEmpty ? "Required" : null,
             ),
             CustomTextField(
-              validator: (value) => value == null || value.isEmpty
-                  ? "You must fill out this field."
-                  : null,
+              validator: (value) =>
+                  value == null || value.isEmpty ? "Required" : null,
               controller: isiController,
               label: 'Content',
               maxLines: 4,

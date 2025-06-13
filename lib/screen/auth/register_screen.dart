@@ -36,10 +36,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   label: 'Email',
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'This field is required';
+                      return 'Required';
                     } else if (!value.contains('@') ||
                         !value.contains('gmail.com')) {
-                      return 'Invalid email format \nEmail format should be "email"@gmail.com';
+                      return 'Invalid email format';
                     }
                     return null;
                   },
@@ -48,17 +48,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustomFormTextField(
                   controller: usernameController,
                   label: 'Username',
-                  validator: (value) => value == null || value.isEmpty
-                      ? "This field is required"
-                      : null,
+                  validator: (value) =>
+                      value == null || value.isEmpty ? "Required" : null,
                 ),
                 SizedBox(height: 16),
                 CustomFormTextField(
                   controller: passwordController,
                   label: 'Password',
-                  validator: (value) => value == null || value.isEmpty
-                      ? "This field is required"
-                      : null,
+                  validator: (value) =>
+                      value == null || value.isEmpty ? "Required" : null,
                   obscureText: !_isVisible,
                   suffixIcon: IconButton(
                     onPressed: () {
@@ -89,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         SnackBar(
                           behavior: SnackBarBehavior.floating,
                           duration: Duration(seconds: 2),
-                          content: Text('Registration Succesful!'),
+                          content: Text('Registration successful'),
                           backgroundColor: Colors.black,
                         ),
                       );

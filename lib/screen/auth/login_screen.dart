@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           SnackBar(
                             behavior: SnackBarBehavior.floating,
                             duration: Duration(seconds: 2),
-                            content: Text('Login Succesful'),
+                            content: Text('Login successful'),
                           ),
                         );
                         Navigator.pushAndRemoveUntil(
@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           SnackBar(
                             behavior: SnackBarBehavior.floating,
                             duration: Duration(seconds: 1),
-                            content: Text('Invalid username or password'),
+                            content: Text('Invalid credentials'),
                           ),
                         );
                       }

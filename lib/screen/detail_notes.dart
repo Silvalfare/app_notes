@@ -32,7 +32,7 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
                 final konfirmasi = await showDialog<bool>(
                   context: context,
                   builder: (_) => AlertDialog(
-                    title: Text('Delete note?'),
+                    title: Text('Delete note'),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop(context, false),

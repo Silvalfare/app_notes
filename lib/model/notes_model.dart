@@ -22,7 +22,7 @@ class Notes {
       id: map['id'] != null ? map['id'] as int : null,
       nama: map['nama'] as String,
       isi: map['isi'] as String,
-      tanggal: map['tanggal'] as String,
+      tanggal: map['tanggal'] != null ? map['tanggal'] as String : null,
     );
   }
 

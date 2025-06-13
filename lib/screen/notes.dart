@@ -66,7 +66,7 @@ class _NotesScreenState extends State<NotesScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Color(0xffE5E5E5),
-                  hintText: 'Search your notes',
+                  hintText: 'Search notes',
                   prefixIcon: Icon(Icons.search),
                   suffixIcon: _controller.text.isNotEmpty
                       ? IconButton(
@@ -82,10 +82,7 @@ class _NotesScreenState extends State<NotesScreen> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      // color: Color(0xffE5E5E5)
-                      style: BorderStyle.none,
-                    ),
+                    borderSide: BorderSide(style: BorderStyle.none),
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
@@ -95,9 +92,7 @@ class _NotesScreenState extends State<NotesScreen> {
               Expanded(
                 child: Center(
                   child: Text(
-                    _controller.text.isEmpty
-                        ? 'No notes available'
-                        : 'No matching result found',
+                    _controller.text.isEmpty ? 'No notes' : 'No results found',
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
@@ -131,7 +126,7 @@ class _NotesScreenState extends State<NotesScreen> {
                         title: Row(
                           children: [
                             SizedBox(
-                              width: 230,
+                              width: 222,
                               child: Text(
                                 notes.nama,
                                 maxLines: 1,
@@ -142,10 +137,9 @@ class _NotesScreenState extends State<NotesScreen> {
                                 ),
                               ),
                             ),
-                            Spacer(),
                             Text(
                               '${notes.tanggal}',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.black,
                               ),
