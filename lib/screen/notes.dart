@@ -96,8 +96,8 @@ class _NotesScreenState extends State<NotesScreen> {
                 child: Center(
                   child: Text(
                     _controller.text.isEmpty
-                        ? 'Belum ada catatan'
-                        : 'Tidak ditemukan hasil pencarianmu',
+                        ? 'No notes available'
+                        : 'No matching result found',
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
