@@ -93,12 +93,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 final konfirmasi = await showDialog<bool>(
                   context: context,
                   builder: (_) => AlertDialog(
-                    title: Text('Apakah anda yakin ingin logout?'),
+                    title: Text('Are you sure you want to logout?'),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.pop(context, false),
                         child: Text(
-                          "Batal",
+                          "Cancel",
                           style: TextStyle(color: Colors.black),
                         ),
                       ),
