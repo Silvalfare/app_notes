@@ -1,8 +1,8 @@
 import 'package:Notes/database/db_helper.dart';
 import 'package:Notes/helper/preference.dart';
 import 'package:Notes/model/notes_model.dart';
-import 'package:Notes/screen/info_aplikasi.dart';
 import 'package:Notes/screen/auth/landing_screen.dart';
+import 'package:Notes/screen/info_aplikasi.dart';
 import 'package:Notes/screen/notes.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
         title: Text(title[currentIndex]),
         backgroundColor: Colors.white,
       ),

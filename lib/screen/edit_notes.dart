@@ -46,16 +46,16 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
         children: [
           CustomTextField(
             controller: namaController,
-            label: 'Nama',
+            label: 'Title',
             validator: (value) =>
-                value == null || value.isEmpty ? "Wajib diisi" : null,
+                value == null || value.isEmpty ? "You must fill out this field." : null,
           ),
           CustomTextField(
             controller: isiController,
-            label: 'Isi',
+            label: 'Content',
             maxLines: 4,
             validator: (value) =>
-                value == null || value.isEmpty ? "Wajib diisi" : null,
+                value == null || value.isEmpty ? "You must fill out this field." : null,
           ),
           CustomElevatedButton(
             text: 'Update',

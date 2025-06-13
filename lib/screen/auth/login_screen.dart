@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             behavior: SnackBarBehavior.floating,
-                            duration: Duration(seconds: 1),
+                            duration: Duration(seconds: 2),
                             content: Text('Login Succesful'),
                           ),
                         );

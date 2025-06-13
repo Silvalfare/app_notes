@@ -39,15 +39,17 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
           children: [
             CustomTextField(
               controller: namaController,
-              label: 'Nama',
-              validator: (value) =>
-                  value == null || value.isEmpty ? "Wajib diisi" : null,
+              label: 'Title',
+              validator: (value) => value == null || value.isEmpty
+                  ? "You must fill out this field."
+                  : null,
             ),
             CustomTextField(
-              validator: (value) =>
-                  value == null || value.isEmpty ? "Wajib diisi" : null,
+              validator: (value) => value == null || value.isEmpty
+                  ? "You must fill out this field."
+                  : null,
               controller: isiController,
-              label: 'Isi',
+              label: 'Content',
               maxLines: 4,
             ),
             CustomElevatedButton(
