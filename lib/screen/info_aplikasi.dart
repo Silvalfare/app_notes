@@ -25,7 +25,7 @@ class AboutScreen extends StatelessWidget {
             ),
             SizedBox(height: 12),
             Text(
-              "Aplikasi catatan simpel yang dibuat dari Flutter.",
+              "A simple note-taking application built with Flutter.",
               style: TextStyle(fontSize: 14, color: Colors.black),
             ),
             // SizedBox(height: 32),

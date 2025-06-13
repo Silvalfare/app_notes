@@ -36,10 +36,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   label: 'Email',
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Wajib diisi';
+                      return 'This field is required';
                     } else if (!value.contains('@') ||
                         !value.contains('gmail.com')) {
-                      return 'Format email tidak valid \nFormat email menggunakan "email"@gmail.com';
+                      return 'Invalid email format \nEmail format should be "email"@gmail.com';
                     }
                     return null;
                   },
@@ -48,15 +48,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustomFormTextField(
                   controller: usernameController,
                   label: 'Username',
-                  validator: (value) =>
-                      value == null || value.isEmpty ? "Wajib diisi" : null,
+                  validator: (value) => value == null || value.isEmpty
+                      ? "This field is required"
+                      : null,
                 ),
                 SizedBox(height: 16),
                 CustomFormTextField(
                   controller: passwordController,
                   label: 'Password',
-                  validator: (value) =>
-                      value == null || value.isEmpty ? "Wajib diisi" : null,
+                  validator: (value) => value == null || value.isEmpty
+                      ? "This field is required"
+                      : null,
                   obscureText: !_isVisible,
                   suffixIcon: IconButton(
                     onPressed: () {

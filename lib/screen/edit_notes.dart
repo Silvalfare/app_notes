@@ -15,7 +15,7 @@ class EditNotesScreen extends StatefulWidget {
 class _EditNotesScreenState extends State<EditNotesScreen> {
   late TextEditingController namaController;
   late TextEditingController isiController;
-
+  final _formKey = GlobalKey<FormState>();
   @override
   void initState() {
     namaController = TextEditingController(text: widget.notes.nama);
@@ -36,36 +36,41 @@ class _EditNotesScreenState extends State<EditNotesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return Form(
+      key: _formKey,
+      child: Scaffold(
         backgroundColor: Colors.white,
-        title: Text('Edit ${widget.notes.nama}'),
-      ),
-      body: Column(
-        children: [
-          CustomTextField(
-            controller: namaController,
-            label: 'Title',
-            validator: (value) =>
-                value == null || value.isEmpty ? "You must fill out this field." : null,
-          ),
-          CustomTextField(
-            controller: isiController,
-            label: 'Content',
-            maxLines: 4,
-            validator: (value) =>
-                value == null || value.isEmpty ? "You must fill out this field." : null,
-          ),
-          CustomElevatedButton(
-            text: 'Update',
-            onPressed: () {
-              update();
-            },
-            backgroundColor: Colors.black,
-            textColor: Colors.white,
-          ),
-        ],
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: Text('Edit ${widget.notes.nama}'),
+        ),
+        body: Column(
+          children: [
+            CustomTextField(
+              controller: namaController,
+              label: 'Title',
+              validator: (value) => value == null || value.isEmpty
+                  ? "You must fill out this field."
+                  : null,
+            ),
+            CustomTextField(
+              controller: isiController,
+              label: 'Content',
+              maxLines: 4,
+              validator: (value) => value == null || value.isEmpty
+                  ? "You must fill out this field."
+                  : null,
+            ),
+            CustomElevatedButton(
+              text: 'Update',
+              onPressed: () {
+                if (_formKey.currentState!.validate()) update();
+              },
+              backgroundColor: Colors.black,
+              textColor: Colors.white,
+            ),
+          ],
+        ),
       ),
     );
   }

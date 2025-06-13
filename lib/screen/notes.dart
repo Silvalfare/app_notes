@@ -66,7 +66,7 @@ class _NotesScreenState extends State<NotesScreen> {
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Color(0xffE5E5E5),
-                  hintText: 'Find your notes',
+                  hintText: 'Search your notes',
                   prefixIcon: Icon(Icons.search),
                   suffixIcon: _controller.text.isNotEmpty
                       ? IconButton(
