@@ -1,7 +1,7 @@
 import 'package:Notes/database/db_helper.dart';
 import 'package:Notes/model/notes_model.dart';
-import 'package:Notes/pages/add_notes.dart';
-import 'package:Notes/pages/detail_notes.dart';
+import 'package:Notes/screen/add_notes.dart';
+import 'package:Notes/screen/detail_notes.dart';
 import 'package:flutter/material.dart';
 
 class NotesScreen extends StatefulWidget {
@@ -68,12 +68,29 @@ class _NotesScreenState extends State<NotesScreen> {
                         );
                         if (hasil == true) muatData();
                       },
-                      title: Text(
-                        notes.nama,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                      title: Row(
+                        children: [
+                          SizedBox(
+                            width: 230,
+                            child: Text(
+                              notes.nama,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          Spacer(),
+                          Text(
+                            '${notes.tanggal}',
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
                       subtitle: Text(
                         notes.isi,

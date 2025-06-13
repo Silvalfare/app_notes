@@ -10,7 +10,7 @@ class DbHelper {
       join(dbPath, 'notes.db'),
       onCreate: (db, version) async {
         await db.execute(
-          'CREATE TABLE notes (id INTEGER PRIMARY KEY AUTOINCREMENT, nama TEXT, isi TEXT)',
+          'CREATE TABLE notes (id INTEGER PRIMARY KEY AUTOINCREMENT, nama TEXT, isi TEXT, tanggal TEXT)',
         );
 
         await db.execute(

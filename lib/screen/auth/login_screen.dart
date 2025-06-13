@@ -1,6 +1,6 @@
 import 'package:Notes/database/db_helper.dart';
 import 'package:Notes/helper/preference.dart';
-import 'package:Notes/pages/home.dart';
+import 'package:Notes/screen/home.dart';
 import 'package:Notes/utils/custom_elevated_button.dart';
 import 'package:Notes/utils/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         PreferenceHandler.saveLogin(true);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
+                            behavior: SnackBarBehavior.floating,
                             duration: Duration(seconds: 1),
                             content: Text('Login Succesful'),
                           ),
@@ -80,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
+                            behavior: SnackBarBehavior.floating,
                             duration: Duration(seconds: 1),
                             content: Text('Username atau password salah'),
                           ),

@@ -1,6 +1,6 @@
 import 'package:Notes/helper/preference.dart';
-import 'package:Notes/pages/home.dart';
-import 'package:Notes/pages/landing_screen.dart';
+import 'package:Notes/screen/home.dart';
+import 'package:Notes/screen/auth/landing_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

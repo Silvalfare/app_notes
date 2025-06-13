@@ -1,6 +1,6 @@
 import 'package:Notes/database/db_helper.dart';
 import 'package:Notes/model/notes_model.dart';
-import 'package:Notes/pages/edit_notes.dart';
+import 'package:Notes/screen/edit_notes.dart';
 import 'package:flutter/material.dart';
 
 class DetailNotesScreen extends StatefulWidget {
@@ -17,11 +17,13 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
+        elevation: 0,
         backgroundColor: Colors.white,
         title: Row(
           children: [
             SizedBox(
-              width: 250,
+              width: 190,
               child: Text(widget.notes.nama, overflow: TextOverflow.ellipsis),
             ),
             Spacer(),
@@ -59,17 +61,15 @@ class _DetailNotesScreenState extends State<DetailNotesScreen> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Text(
-              overflow: TextOverflow.ellipsis,
-              widget.notes.isi,
-              style: TextStyle(fontSize: 18),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Text(widget.notes.isi, style: TextStyle(fontSize: 18)),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(

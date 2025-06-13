@@ -1,8 +1,8 @@
-import 'package:Notes/pages/home.dart';
-import 'package:Notes/pages/landing_screen.dart';
-import 'package:Notes/pages/login_screen.dart';
-import 'package:Notes/pages/register_screen.dart';
-import 'package:Notes/pages/splash_screen.dart';
+import 'package:Notes/screen/home.dart';
+import 'package:Notes/screen/auth/landing_screen.dart';
+import 'package:Notes/screen/auth/login_screen.dart';
+import 'package:Notes/screen/auth/register_screen.dart';
+import 'package:Notes/screen/auth/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.teal,
+          seedColor: Colors.white,
           // brightness: Brightness.light,
         ),
       ),
